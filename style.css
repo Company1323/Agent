@@ -35,11 +35,11 @@ a {
 
 /* نوبار */
 nav {
-    background-color: rgba(146, 177, 190, 0.9);
+    background-color: #1d6192 ;
     display: flex;
     justify-content: space-between;
     padding: 0 3.125rem;
-    height: 5rem;
+    height: 5.5rem;
     align-items: center;
     position: fixed;
     top: 0;
@@ -52,16 +52,32 @@ nav {
 nav .misagh a {
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--text-color);
+    color: white;
     font-family: 'Oswald', sans-serif;
     text-decoration: none;
     display: inline-block;
     transition: transform 0.3s ease, color 0.3s ease;
+    margin-left: -550px;
+}
+
+nav .misagh img{
+    margin-top: 6.2px;
+    margin-left: -30px;
+    height: 80px;
+    width: 80px;
+        object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 50px;
+}
+
+nav .misagh img:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
 nav .misagh a:hover {
     transform: scale(1.1);
-    color: var(--link-color);
+    color: white;
 }
 
 /* لینک‌های نوبار */
@@ -72,11 +88,12 @@ nav .navbar {
 
 nav .navbar a {
     font-family: 'Poppins', sans-serif;
+    color: white;
     font-size: 1rem;
     font-weight: 400;
     position: relative;
     text-decoration: none;
-    color: var(--text-color);
+    
     padding: 5px 0;
     transition: transform 0.3s ease, color 0.3s ease;
 }
@@ -88,7 +105,7 @@ nav .navbar a::after {
     bottom: -3px;
     width: 0;
     height: 2px;
-    background-color: var(--text-color);
+    background-color: gray;
     transition: width 0.3s ease 0.1s, background-color 0.3s ease;
 }
 
@@ -106,7 +123,7 @@ nav .navbar a:hover::after {
 .menu-toggle {
     display: none;
     font-size: 2rem;
-    color: var(--text-color);
+    color: white;
     cursor: pointer;
 }
 
@@ -220,7 +237,7 @@ section#about .image-box img:hover {
         top: 5rem;
         right: 0;
         width: 200px;
-        background: rgba(146, 177, 190, 0.95);
+        background: #1d6192;
         padding: 1rem;
         box-shadow: 0 5px 10px rgba(0,0,0,0.2);
         border-radius: 8px;
@@ -230,6 +247,8 @@ section#about .image-box img:hover {
     nav .navbar.show {
         display: flex;
     }
+
+
 
     section#about .image-box img {
         margin-top: 20px;
