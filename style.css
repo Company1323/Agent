@@ -1,0 +1,542 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+/* Base Styles */
+:root {
+    --text-color: #1a1c20;
+    --link-color: #ffffff;
+    --background-color: #eeeff1;
+    font-size: 17px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* نوبار */
+nav {
+    background-color: rgba(146, 177, 190, 0.9);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3.125rem;
+    height: 5rem;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+/* لوگو */
+nav .misagh a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    font-family: 'Oswald', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+nav .misagh a:hover {
+    transform: scale(1.1);
+    color: var(--link-color);
+}
+
+/* لینک‌های نوبار */
+nav .navbar {
+    display: flex;
+    gap: 1.2rem;
+}
+
+nav .navbar a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    position: relative;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 5px 0;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+nav .navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: width 0.3s ease 0.1s, background-color 0.3s ease;
+}
+
+nav .navbar a:hover {
+    color: var(--link-color);
+    transform: scale(1.1);
+}
+
+nav .navbar a:hover::after {
+    width: 100%;
+    background-color: var(--link-color);
+}
+
+/* آیکون همبرگری */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* بخش About */
+section#about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 6rem 3rem 3rem 3rem;
+    background-color: var(--background-color);
+    flex-wrap: wrap;
+}
+
+section#about .text-box {
+    flex: 1 1 300px;
+    min-width: 280px;
+}
+
+section#about .text-box h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+section#about .text-box p {
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+section#about .image-box {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    min-width: 280px;
+    margin-left: 800px;
+}
+
+section#about .image-box img {
+    border-radius: 50%;
+    width: 420px;
+    height: 420px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section#about .image-box img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* آیکون زیر متن (دسکتاپ) */
+.social {
+    margin-top: 380px;
+    margin-left: -600px;
+    text-align: left;
+}
+
+.social a {
+    font-size: 2.2rem;
+    color: rgb(110, 110, 243);
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.social a:hover {
+    color: #5a5aff;
+    transform: scale(1.2);
+}
+
+/* ---------- ریسپانسیو ---------- */
+
+/* حالت تبلت */
+@media (max-width: 1024px) {
+    section#about {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 5rem;
+    }
+
+    section#about .image-box {
+        margin-left: 0;
+    }
+
+    section#about .image-box img {
+        width: 280px;
+        height: 280px;
+        margin-bottom: 20px;
+    }
+
+    .social {
+        margin: 20px auto 0 auto;
+        text-align: center;
+    }
+}
+
+/* حالت موبایل */
+@media (max-width: 768px) {
+    /* منوی همبرگری */
+    .menu-toggle {
+        display: block;
+    }
+
+    nav .navbar {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 5rem;
+        right: 0;
+        width: 200px;
+        background: rgba(146, 177, 190, 0.95);
+        padding: 1rem;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        border-radius: 8px;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    nav .navbar.show {
+        display: flex;
+    }
+
+    section#about .image-box img {
+        margin-top: 20px;
+        width: 250px;
+        height: 250px;
+    }
+
+    .social {
+        margin: 7px auto -20px auto;
+        text-align: center;
+    }
+}
+
+/* افکت اسلاید برای منو */
+@keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.projects-section {
+    padding: 2rem;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-subsection h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+.swiper-wrapper {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.swiper-slide {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 280px;
+    transition: transform 0.3s ease;
+    flex: 0 0 auto; /* اضافه شد تا با موبایل سازگار شود */
+}
+
+.swiper-slide:hover {
+    transform: translateY(-10px);
+}
+
+.project-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    padding: 1rem;
+}
+
+.project-box picture img {
+    width: 68%;
+    border-bottom: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+}
+
+.project-box h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+    color: #222;
+}
+
+.project-box h5 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.8rem;
+}
+
+.project-box p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.5;
+}
+
+/* --- ریسپانسیو موبایل فقط برای بخش پروژه --- */
+@media (max-width: 768px) {
+    .swiper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding: 1rem;
+    }
+
+    .swiper-wrapper {
+        gap: 1rem;
+    }
+
+    .swiper-slide {
+        width: 80%;
+        max-width: 280px;
+        scroll-snap-align: start;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        overflow: hidden;
+    }
+
+    .swiper::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+
+footer {
+    background: #1e1e2f; /* رنگ پس‌زمینه تیره */
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* لینک‌ها در فوتر */
+footer a {
+    color: #9b9bff; /* آبی مایل به بنفش */
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff; /* تغییر رنگ در هاور */
+}
+
+/* متن پایین */
+footer p {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+@media (max-width: 768px) {
+    .card-swiper {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding: 1rem;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+    }
+
+    .card-swiper::after {
+        content: '';
+        flex: 0 0 1rem; /* فاصله برای آخرین کارت */
+    }
+
+    .swiper-slide {
+        flex: 0 0 auto;
+        width: 80%;
+        max-width: 280px;
+        scroll-snap-align: start;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        overflow: hidden;
+    }
+
+    .card-swiper::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+
+.skills{
+    padding: 2rem;
+    background-color: #e5e5e5;
+    text-align: center;
+}
+
+.skills i {
+    font-size: 3.4rem;
+    color: rgb(110, 110, 243);
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    margin-right: 10px; /* برای فاصله */
+    margin-top: 40px;
+}
+
+.skills i:hover {
+    color: #5a5aff;
+    transform: scale(1.2);
+}
+
+.skills h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .skills i {
+        font-size: 2.7rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .card-swiper {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding: 1rem;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+    }
+
+    .card-swiper::after {
+        content: '';
+        flex: 0 0 1rem; /* فاصله برای آخرین کارت */
+    }
+
+    .swiper-slide {
+        flex: 0 0 80%;
+        max-width: 280px;
+        height: auto; /* ارتفاع اتوماتیک */
+        scroll-snap-align: start;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: #fff;
+        overflow: hidden;
+    }
+
+    /* تصویر کارت */
+    .swiper-slide img {
+        width: 100%;
+        height: auto;
+        max-height: 160px; /* کنترل اندازه تصویر */
+        object-fit: contain; /* بدون بریدگی */
+        border-bottom: 1px solid #eee;
+    }
+
+    /* مخفی کردن اسکرول‌بار */
+    .card-swiper::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.swiper {
+    width: 100%;
+    overflow-x: scroll !important;
+
+  }
+
+.swiper-slide {
+    width: 272px !important;
+    height: 390px;
+    margin-left: 0 auto;
+    margin-bottom: 10px;
+}
+
+.swiper-slide > a {
+    display: block;
+    transform: scale(0.9);
+    width: 272px;
+    height: 375.75px;
+}
+
+  .card-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* فاصله بین کارت‌ها */
+    padding: 20px;
+    flex-wrap: wrap; /* برای اینکه در موبایل کارت‌ها زیر هم بروند */
+  }
+
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+
+  .card:hover {
+    transform: scale(1.05); /* افکت بزرگ شدن کارت هنگام هاور */
+  }
+
+  .card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .card h6 {
+    font-family: 'Poppins', sans-serif;
+    color: #005f79;
+    font-weight: 50000;
+  }
